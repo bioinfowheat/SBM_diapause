@@ -1,0 +1,63 @@
+From Lea
+
+attaching to this email 2 folders with gene expression data from 2 methods (DESeq2 or the VOOM method from the article). 
+Each folder is for a body part (he=head & ab=abdomen) and has:
+three subsets of 200 genes per method named 1, 2 and 3 
+
+The full data table for each method
+(the *_voom files being for the voom method and the others for the DESeq2) 
+
+Here are the pipelines for each method:
+With DESeq2:
+Raw counts table:
+    Filter lowly expressed genes:
+        CPM threshold > 1
+        In at least 2 samples for each gene
+    Run DESeq () on the count table:
+        Normalize through DESeq2 (correcting for differences in library sizes or sequencing depths by correcting with size factor)
+    3 random subsets of 200 genes from final table
+
+###
+With TMM + VOOM + limma:
+
+Raw counts table:
+    Filter lowly expressed genes:
+        CPM threshold > 1
+        In at least 2 samples for each gene
+    TMM normalize the data for composition bias: adjust for differences in library sizes and composition biases between samples
+    VOOM transform the data:
+        applies log-counts per million (logCPM) transformation, to account for differences in library size across samples
+        estimates the mean-variance trend in the data, to help ensure that genes with different expression levels are weighted appropriately in the statistical model
+    Maybe possible to remove batch effect from covariate as they did but which covariate…? (So not done now…)
+    3 random subsets of 200 genes from final table
+
+unzip Input_SBM.zip 
+Archive:  Input_SBM.zip
+   creating: Input_SBM_ab/
+  inflating: Input_SBM_ab/normalized_counts.tsv  
+  inflating: Input_SBM_ab/normalized_counts_1.tsv  
+  inflating: Input_SBM_ab/normalized_counts_1_voom.tsv  
+  inflating: Input_SBM_ab/normalized_counts_2.tsv  
+  inflating: Input_SBM_ab/normalized_counts_2_voom.tsv  
+  inflating: Input_SBM_ab/normalized_counts_3.tsv  
+  inflating: Input_SBM_ab/normalized_counts_3_voom.tsv  
+  inflating: Input_SBM_ab/normalized_counts_voom.tsv  
+   creating: Input_SBM_he/
+  inflating: Input_SBM_he/normalized_counts.tsv  
+  inflating: Input_SBM_he/normalized_counts_1.tsv  
+  inflating: Input_SBM_he/normalized_counts_1_voom.tsv  
+  inflating: Input_SBM_he/normalized_counts_2.tsv  
+  inflating: Input_SBM_he/normalized_counts_2_voom.tsv  
+  inflating: Input_SBM_he/normalized_counts_3.tsv  
+  inflating: Input_SBM_he/normalized_counts_3_voom.tsv  
+  inflating: Input_SBM_he/normalized_counts_voom.tsv
+
+-rw-r--r-- 1 chrwhe chrwhe  67K Jun 10 17:31 normalized_counts_1.tsv
+-rw-r--r-- 1 chrwhe chrwhe  71K Jun 10 17:39 normalized_counts_1_voom.tsv
+-rw-r--r-- 1 chrwhe chrwhe  68K Jun 10 17:31 normalized_counts_2.tsv
+-rw-r--r-- 1 chrwhe chrwhe  71K Jun 10 17:39 normalized_counts_2_voom.tsv
+-rw-r--r-- 1 chrwhe chrwhe  68K Jun 10 17:31 normalized_counts_3.tsv
+-rw-r--r-- 1 chrwhe chrwhe  71K Jun 10 17:39 normalized_counts_3_voom.tsv
+-rw-r--r-- 1 chrwhe chrwhe 3.8M Jun 10 17:31 normalized_counts.tsv
+-rw-r--r-- 1 chrwhe chrwhe 4.0M Jun 10 17:39 normalized_counts_voom.tsv
+
