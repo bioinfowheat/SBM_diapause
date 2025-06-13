@@ -237,8 +237,3 @@ rule equilibrate:
 
 
 
-# zip necessary files
-
-zip example_4files.zip cache/blockSummary/fdr-1e-5/example/gene_block.csv cache/blockSummary/fdr-1e-5/example/block_summary.csv cache/trimmed_graph/fdr-1e-5/example.xml.gz cache/equilibrate/fdr-1e-5/example.dill
-
-scp chrwhe@duke.zoologi.su.se:/mnt/griffin/chrwhe/SBM_2/SBM-tools/snakemake/example_4files.zip .

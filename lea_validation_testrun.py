@@ -8,12 +8,13 @@ import dill
 ### cache/blockSummary/fdr-1e-5/example/block_summary.csv
 ### cache/trimmed_graph/fdr-1e-5/example.xml.gz
 ### cache/equilibrate/fdr-1e-5/example.dill
+### cache/MCMC/
 
 ### Load the graph
 g = gt.load_graph("cache/trimmed_graph/fdr-1e-5/example.xml.gz")
 
 ### Load the optimized SBM block state
-with open("cache/equilibrate/fdr-1e-5/example.dill", "rb") as f:
+with open("cache/MCMC/blocks/fdr-1e-5/example.dill", "rb") as f:
     state = dill.load(f)
 
 blocks = state.get_blocks()
