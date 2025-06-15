@@ -53,3 +53,73 @@ rule graph:
     wildcards: label=normalized_counts
     resources: tmpdir=/tmp
     
+
+tree -L 4 /mnt/griffin/chrwhe/SBM_2/test_run4/SBM-tools/snakemake/cache
+
+
+/mnt/griffin/chrwhe/SBM_2/test_run4/SBM-tools/snakemake/cache
+├── annealedBlock
+│   ├── fdr-1e-2
+│   │   └── normalized_counts.dill
+│   ├── fdr-1e-3
+│   │   └── normalized_counts.dill
+│   └── fdr-1e-4
+│       └── normalized_counts.dill
+├── blockSummary
+│   └── fdr-1e-4
+│       └── normalized_counts
+│           ├── background.csv
+│           ├── block_summary.csv
+│           ├── gene_block.csv
+│           ├── Level_1
+│           └── Level_2
+├── equilibrate
+│   ├── fdr-1e-3
+│   │   └── normalized_counts.dill
+│   └── fdr-1e-4
+│       └── normalized_counts.dill
+├── graph
+│   └── normalized_counts.xml.gz
+├── initialBlock
+│   ├── fdr-1e-2
+│   │   └── normalized_counts.dill
+│   ├── fdr-1e-3
+│   │   └── normalized_counts.dill
+│   └── fdr-1e-4
+│       └── normalized_counts.dill
+├── MCMC
+│   ├── blocks
+│   │   └── fdr-1e-4
+│   │       └── normalized_counts.dill
+│   └── hist
+│       └── fdr-1e-4
+│           └── normalized_counts.dill
+└── trimmed_graph
+    ├── fdr-1e-2
+    │   └── normalized_counts.xml.gz
+    ├── fdr-1e-3
+    │   └── normalized_counts.xml.gz
+    └── fdr-1e-4
+        └── normalized_counts.xml.gz
+
+
+
+cp /mnt/griffin/chrwhe/SBM_2/graph_tool_sbm.py
+python /mnt/griffin/chrwhe/SBM_2/graph_tool_sbm.py
+
+
+
+rawdatafile=normalized_counts
+pval=fdr-1e-4
+zip $rawdatafile.$pval.zip \
+cache/blockSummary/$pval/$rawdatafile/gene_block.csv \
+cache/blockSummary/$pval/$rawdatafile/block_summary.csv \
+cache/trimmed_graph/$pval/$rawdatafile.xml.gz \
+cache/MCMC/blocks/$pval/$rawdatafile.dill
+
+python graph_tool_sbm_hiearchy.wheat_v1.py normalized_counts 1e-4
+python graph_tool_sbm.wheat_v1.py normalized_counts 1e-4                                                                                  
+
+scp chrwhe@duke.zoologi.su.se:/mnt/griffin/chrwhe/SBM_2/test_run4/SBM-tools/snakemake/\*.zip .
+scp chrwhe@duke.zoologi.su.se:/mnt/griffin/chrwhe/SBM_2/test_run4/SBM-tools/snakemake/\*.py .
+scp chrwhe@duke.zoologi.su.se:/mnt/griffin/chrwhe/SBM_2/test_run4/SBM-tools/snakemake/\*.png .

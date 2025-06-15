@@ -186,3 +186,5 @@ cp -r SBM-tools SBM-tools_rerun
 cd /mnt/griffin/chrwhe/SBM_2/test_run3/SBM-tools_rerun
 # removed voom data
 snakemake -s Snakefile_batchGraph --cores all &> screen_rerun.log
+
+more /mnt/griffin/chrwhe/SBM_2/test_run3/SBM-tools_rerun/screen_rerun.log
