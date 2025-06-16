@@ -64,3 +64,19 @@ type: "batch" # "layer" or "batch"
 
 snakemake -s Snakefile_batchGraph --cores all &> screen.log
 
+# froze at 
+tail *log                                                     
+niter:   929  count:    0  breaks:  0  min_S: 1381595.0  max_S: 1382960.1  S: 1382006.3  ΔS:      124.698  moves:  7203            
+niter:   930  count:    0  breaks:  0  min_S: 1381595.0  max_S: 1382960.1  S: 1381981.5  ΔS:     -24.8116  moves:  2550            
+niter:   931  count:    0  breaks:  0  min_S: 1381595.0  max_S: 1382960.1  S: 1382093.2  ΔS:      111.660  moves:  4310            
+niter:   932  count:    0  breaks:  0  min_S: 1381595.0  max_S: 1382960.1  S: 1382089.7  ΔS:     -3.54012  moves:  3108            
+niter:   933  count:    0  breaks:  0  min_S: 1381595.0  max_S: 1382960.1  S: 1382054.7  ΔS:     -34.9079  moves:  4150            
+niter:   934  count:    0  breaks:  0  min_S: 1381595.0  max_S: 1382960.1  S: 1381940.1  ΔS:     -114.692  moves:  5117            
+niter:   935  count:    0  breaks:  0  min_S: 1381595.0  max_S: 1382960.1  S: 1381973.6  ΔS:      33.5061  moves:  5134            
+niter:   936  count:    0  breaks:  0  min_S: 1381595.0  max_S: 1382960.1  S: 1381872.6  ΔS:     -100.953  moves:  4247            
+niter:   937  count:    0  breaks:  0  min_S: 1381595.0  max_S: 1382960.1  S: 1382043.9  ΔS:      171.329  moves:  4799            
+niter:   938  count:    0  breaks:  0  min_S: 1381595.0  max_S: 1382960.1  S: 1381941.2  ΔS:     -102.741  moves:  5056 
+
+in the MCMC step.
+
+# trying to get parallel trim to work in this test set.
