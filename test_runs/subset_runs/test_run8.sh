@@ -101,3 +101,35 @@ ty slice.
 ncountered in scalar divide
   ret = ret.dtype.type(ret / rcount)
 
+#####
+tree -L 4 cache/                                              
+cache/
+├── annealedBlock
+│   └── fdr-1e-2
+│       └── normalized_counts_1.dill
+├── blockSummary
+│   └── fdr-1e-2
+│       └── normalized_counts_1
+│           ├── background.csv
+│           ├── block_summary.csv
+│           ├── gene_block.csv
+│           ├── Level_1
+│           └── Level_2
+├── equilibrate
+│   └── fdr-1e-2
+│       └── normalized_counts_1.dill
+├── graph
+│   └── normalized_counts_1.xml.gz
+├── initialBlock
+│   └── fdr-1e-2
+│       └── normalized_counts_1.dill
+├── MCMC
+│   ├── blocks
+│   │   └── fdr-1e-2
+│   │       └── normalized_counts_1.dill
+│   └── hist
+│       └── fdr-1e-2
+│           └── normalized_counts_1.dill
+└── trimmed_graph
+    └── fdr-1e-2
+        └── normalized_counts_1.xml.gz

@@ -20,3 +20,8 @@ scp chrwhe@duke.zoologi.su.se:/mnt/griffin/chrwhe/SBM_2/test_run4/SBM-tools/snak
 scp chrwhe@duke.zoologi.su.se:/mnt/griffin/chrwhe/SBM_2/test_run4/SBM-tools/snakemake/\*.png .
 
 
+# transfer
+sudo cp normalized_counts_3.fdr-1e-2.zip /mnt/│griffin/leafar                 
+sudo chown leafar:leafar /mnt/griffin/leafar/normalized_counts_3.fdr-1e-2.zip                                                                                                     
+
+## 6a
